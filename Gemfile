@@ -3,8 +3,8 @@ source "https://rubygems.org"
 case ENV["MODEL_ADAPTER"]
 when nil, "active_record"
   gem "sqlite3"
-  gem "activerecord", '~> 3.0.9', :require => "active_record"
-  gem "with_model", "~> 0.2.5"
+  gem "activerecord", '>= 3.0', :require => "active_record"
+  gem "with_model"
   gem "meta_where"
 when "data_mapper"
   gem "dm-core", "~> 1.0.2"
@@ -16,5 +16,3 @@ when "mongoid"
 else
   raise "Unknown model adapter: #{ENV["MODEL_ADAPTER"]}"
 end
-
-gemspec
